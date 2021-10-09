@@ -134,7 +134,7 @@ const chineseCalendar = ad => {
       keqiIndex = 0 ;
      }
    }
-  return "天干地支：" + tiangan[tian] + dizhi[di] + + "\n"
+  return "天干地支：" + tiangan[tian] + dizhi[di] + "\n"
    + "   大运（中运）："+ wuxingList[tian % 5] + yinyang[tian%2] + "\n"
   + "   司天：" + liuqi[di%6] + "\n"
   +"   在泉：" + zaiquan[di%6] + "\n"

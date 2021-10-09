@@ -17,14 +17,14 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view style="flex-direction:row;">
+  <!-- <view style="flex-direction:row;">
      <text>天干：</text>
      <text class="user-motto">{{tianganString}}</text>
   </view>
   <view style="flex-direction:row;">
      <text>地支：</text>
      <text class="user-motto">{{dizhiString}}</text>
-  </view>
+  </view> -->
   
   <form catchsubmit="formSubmit" catchreset="formReset">
     <view style="flex-direction:row;">

@@ -37,6 +37,16 @@ const wunyinIndexList= {
   "水": 4,  
 }
 
+const zhuqiList =  new Array("厥阴风木","少阴君火","少阳相火","太阴湿土","阳明燥金","太阳寒水",)
+const keqiIndexList = {
+  "厥阴风木": 0 ,
+  "少阴君火": 1,
+  "太阴湿土" :2 ,
+  "少阳相火" :3 ,
+  "阳明燥金": 4,
+  "太阳寒水": 5 
+}
+const keqiList = new Array("厥阴风木","少阴君火","太阴湿土","少阳相火","阳明燥金","太阳寒水",)
 const chineseCalendar = ad => {
   var tian = (ad - 3 ) % 10
    if (tian == 0) {
@@ -105,7 +115,33 @@ const chineseCalendar = ad => {
     
    })
 
-  return tiangan[tian] + dizhi[di] + "   大运（中运）："+ wuxingList[tian % 5] + yinyang[tian%2] + "   司天：" + liuqi[di%6] +"   在泉：" + zaiquan[di%6] + "  客运："+ keyunString  + "   主运："+ zhuyunString
+
+
+
+   var keqi = new Array()
+   keqi[2] = liuqi[di%6]
+   keqi[5] =  zaiquan[di%6]
+   var keqiIndex = keqiIndexList[keqi[2]]
+   
+   for (var i = 0 ; i < 6 ;i++){
+     var index = i + 2
+     if( index > 5 ){
+       index= index -6
+     }
+     keqi[index] = keqiList[keqiIndex]
+     keqiIndex = keqiIndex + 1;
+     if(keqiIndex == 6){
+      keqiIndex = 0 ;
+     }
+   }
+  return "天干地支：" + tiangan[tian] + dizhi[di] + + "\n"
+   + "   大运（中运）："+ wuxingList[tian % 5] + yinyang[tian%2] + "\n"
+  + "   司天：" + liuqi[di%6] + "\n"
+  +"   在泉：" + zaiquan[di%6] + "\n"
+  + "  客运："+ keyunString + "\n"
+   +   "   主运："+ zhuyunString + "\n"
+  + "   客气：" + keqi + "\n"
+  + "   主气：" + zhuqiList 
 
 }
 module.exports = {

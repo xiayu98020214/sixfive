@@ -15,7 +15,7 @@ const formatNumber = n => {
 }
 const tiangan = new Array( "甲", "乙", "丙", "丁", "戊","己", "庚", "辛", "壬","癸")
 const dizhi = new Array("子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥",)
-const wuxingList = new Array("土","金","木","水","火")
+const wuxingList = new Array("土","金","水","木","火")
 const liuqi = new Array("少阴君火","太阴湿土","少阳相火","阳明燥金","太阳寒水","厥阴风木",)
 const zaiquan = new Array("阳明燥金","太阳寒水","厥阴风木","少阴君火","太阴湿土","少阳相火",)
 const yinyang = new Array("太过","不及")
@@ -47,6 +47,17 @@ const keqiIndexList = {
   "太阳寒水": 5 
 }
 const keqiList = new Array("厥阴风木","少阴君火","太阴湿土","少阳相火","阳明燥金","太阳寒水",)
+
+
+const sitianContent = {
+  "少阴君火":"少陰司天，主勝，則心熱，煩躁，牀痛支滿；客勝，則鼽嚏，頸項強，肩背瞀熱，頭痛，少氣，發熱，耳聾，目瞑，甚則跗腫，血溢，瘡，喑，喘咳。",
+  "太阴湿土": "太陰司天，主勝，則胸腹滿，食已而瞀；客勝，則首、面、跗腫，呼吸氣喘。",
+  "少阳相火":"少陽司天，主勝，則胸滿，咳逆，仰息，甚則有血，手熱；客勝，則丹疹外發，及為丹熛，瘡瘍，嘔逆，喉痹，頭痛，嗌踵，耳聾，血溢，內為瘛瘲。",
+  "阳明燥金":"陽明司天，主勝，則清復內餘，咳，衄，嗌塞，心膈中熱，咳不止而白血出者死，金居少陽之位，客不勝主也。",
+  "太阳寒水":"太陽司天，主勝，則喉嗌中鳴；客勝，則胸中不利，出清涕，感寒則咳也。",
+  "厥阴风木":"厥陰司天，主勝，則胸牀痛，舌難以言；客勝，則耳鳴，掉眩，甚則咳逆。",
+
+}
 const chineseCalendar = ad => {
   var tian = (ad - 3 ) % 10
    if (tian == 0) {
@@ -137,6 +148,7 @@ const chineseCalendar = ad => {
   return "天干地支：" + tiangan[tian] + dizhi[di] + "\n"
    + "   大运（中运）："+ wuxingList[tian % 5] + yinyang[tian%2] + "\n"
   + "   司天：" + liuqi[di%6] + "\n"
+  + sitianContent[liuqi[di%6]] + "\n"
   +"   在泉：" + zaiquan[di%6] + "\n"
   + "  客运："+ keyunString + "\n"
    +   "   主运："+ zhuyunString + "\n"

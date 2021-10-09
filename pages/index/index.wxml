@@ -29,12 +29,12 @@
   <form catchsubmit="formSubmit" catchreset="formReset">
     <view style="flex-direction:row;">
      <text>请输入公元纪年</text>
-     <input name="ad"  placeholder="公元纪年" />
+     <input name="ad"  placeholder="公元纪年"  type="number"/>
     </view>
     
     <view class="btn-area">
         <button style="margin: 30rpx 0" type="primary" formType="submit">计算</button>
-        <button style="margin: 30rpx 0" formType="reset">Reset</button>
+        <!-- <button style="margin: 30rpx 0" formType="reset">Reset</button> -->
       </view>
   </form>
   <view style="flex-direction:row;">

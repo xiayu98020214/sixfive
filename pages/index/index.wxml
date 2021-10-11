@@ -33,7 +33,7 @@
     </view>
     
     <view   style="flex-direction:row;">
-      <input name="year"  value="1982"  type="number"
+      <input name="year"  value="1984"  type="number"
       style="background-color: lightblue;" />
      <text>年</text>
      <input name="month"  value="8"  type="number" style="background-color: lightblue;"/>

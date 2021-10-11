@@ -55,7 +55,7 @@ Page({
     const temmp = 1
     //const adjson  =  JSON.parse(e.detail.value)
     //const tmp = adjson["ad"]
-    console.log('form发生了submit事件，携带数据为2：', e.detail.value["ad"])
+    //console.log('form发生了submit事件，携带数据为2：', e.detail.value["ad"])
     const tmp2 = e.detail.value["year"];
     const year = parseInt(e.detail.value["year"])
     const month = parseInt(e.detail.value["month"]);

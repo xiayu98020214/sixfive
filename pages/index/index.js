@@ -2,6 +2,7 @@
 // 获取应用实例
 const app = getApp()
 const util = require('../../utils/util.js')
+const dateUtil = require('../../utils/dateUtil.js')
 Page({
   data: {
     motto: 'Hello World',
@@ -55,14 +56,16 @@ Page({
     //const adjson  =  JSON.parse(e.detail.value)
     //const tmp = adjson["ad"]
     console.log('form发生了submit事件，携带数据为2：', e.detail.value["ad"])
-    const tmp2 = e.detail.value["ad"];
-    const tmp3 = parseInt(tmp2)
+    const tmp2 = e.detail.value["year"];
+    const year = parseInt(e.detail.value["year"])
+    const month = parseInt(e.detail.value["month"]);
+    const day = parseInt(e.detail.value["day"]);
     console.log('form发生了submit事件，携带数据为3：', e.detail.value["ad"])
     // console.log('jieguo', util.chineseCalendar())
-    
-    console.log('jieguo', util.chineseCalendar(tmp3))
+    const tmp4 = dateUtil.findliuqi(month + "-" + day);
+    console.log('liuqi',tmp4)
     this.setData({
-      chineseCalendar : util.chineseCalendar(tmp3)
+      chineseCalendar : util.chineseCalendar(year,month,day)
     })
   },
 })

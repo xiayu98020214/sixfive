@@ -1,3 +1,5 @@
+const dateUtil = require('dateUtil.js')
+
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -84,7 +86,7 @@ const bigyunContent= {
 
 }
 
-const chineseCalendar = ad => {
+const chineseCalendar = (ad,month,day)=> {
   var tian = (ad - 3 ) % 10
    if (tian == 0) {
     tian = 9
@@ -103,6 +105,9 @@ const chineseCalendar = ad => {
       this.yin = yin;
     }
   }
+
+
+
   const wuxing  = wuxingList[tian % 5]
   var keyun = new Array();
   keyun.push(new Yun(bigsmall[tian%2],wuyin[wuxing]))
@@ -173,6 +178,7 @@ const chineseCalendar = ad => {
    }
 
    var bigyun = wuxingList[tian % 5] + yinyang[tian%2]
+   var qiInterval = dateUtil.findliuqi(month + "-"+ day)
   return "天干地支：" + tiangan[tian] + dizhi[di] + "\n"
    + "   大运（中运）："+ bigyun + "\n"
    + bigyunContent[bigyun] + "\n"
@@ -182,8 +188,8 @@ const chineseCalendar = ad => {
   + zaiquanContent[zaiquan[di%6]] + "\n"
   + "  客运："+ keyunString + "\n"
    +   "   主运："+ zhuyunString + "\n"
-  + "   客气：" + keqi + "\n"
-  + "   主气：" + zhuqiList 
+  + "   客气：" + keqi[qiInterval] + "\n"
+  + "   主气：" + zhuqiList[qiInterval] 
 
 }
 module.exports = {

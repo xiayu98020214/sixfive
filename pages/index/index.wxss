@@ -17,3 +17,12 @@
 .usermotto {
   margin-top: 10px;
 }
+
+.flex-wrp{
+  margin-top: 60rpx;
+  display:flex;
+}
+
+.input{
+  background-color: lightblue;
+}

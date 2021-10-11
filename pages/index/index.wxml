@@ -32,6 +32,17 @@
      <input name="ad"  placeholder="公元纪年"  type="number"/>
     </view>
     
+    <view   style="flex-direction:row;">
+      <input name="year"  value="1982"  type="number"
+      style="background-color: lightblue;" />
+     <text>年</text>
+     <input name="month"  value="8"  type="number" style="background-color: lightblue;"/>
+     <text>月</text>
+     <input name="day"  value="14"  type="number" style="background-color: lightblue;" />
+     <text>日</text>
+  </view>
+
+
     <view class="btn-area">
         <button style="margin: 30rpx 0" type="primary" formType="submit">计算</button>
         <!-- <button style="margin: 30rpx 0" formType="reset">Reset</button> -->
@@ -41,4 +52,6 @@
      <text>结果：</text>
      <text class="user-motto">{{chineseCalendar}}</text>
   </view>
+
+
 </view>

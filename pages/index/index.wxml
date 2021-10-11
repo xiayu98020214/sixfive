@@ -25,32 +25,30 @@
      <text>地支：</text>
      <text class="user-motto">{{dizhiString}}</text>
   </view> -->
-  
-  <form catchsubmit="formSubmit" catchreset="formReset">
+
+  <form catchsubmit="formSubmit" catchreset="formReset" style="margin: 30rpx; display: flex; align-items: center;">
     <!-- <view style="flex-direction:row;">
      <text>请输入公元纪年</text>
      <input name="ad"  placeholder="公元纪年"  type="number"/>
     </view> -->
     <text>请输入年月日</text>
-    <view   style="flex-direction:row;">
-      <input name="year"  value="1984"  type="number"
-      style="background-color: lightblue;" />
-     <text>年</text>
-     <input name="month"  value="8"  type="number" style="background-color: lightblue;"/>
-     <text>月</text>
-     <input name="day"  value="14"  type="number" style="background-color: lightblue;" />
-     <text>日</text>
-  </view>
+    <view style="flex-direction:row; display: flex;margin-top: 30rpx;">
+      <input name="year" value="1984" type="number" style="background-color: lightblue;" />
+      <text>年</text>
+      <input name="month" value="8" type="number" style="background-color: lightblue;" />
+      <text>月</text>
+      <input name="day" value="14" type="number" style="background-color: lightblue;" />
+      <text>日</text>
+    </view>
 
-
-    <view class="btn-area">
-        <button style="margin: 30rpx 0" type="primary" formType="submit">计算</button>
-        <!-- <button style="margin: 30rpx 0" formType="reset">Reset</button> -->
-      </view>
+    <view style="display: flex; align-items: center;justify-content: center;">
+       <button style="margin: 20rpx ;" type="primary" formType="submit">计算</button>
+    </view>
+    <!-- <button style="margin: 30rpx 0" formType="reset">Reset</button> -->
   </form>
   <view style="flex-direction:row;">
-     <text>结果：</text>
-     <text class="user-motto">{{chineseCalendar}}</text>
+    <text>结果：</text>
+    <text class="user-motto">{{chineseCalendar}}</text>
   </view>
 
 

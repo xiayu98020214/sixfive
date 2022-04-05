@@ -1,0 +1,22 @@
+<!--pages/books/books.wxml-->
+
+<view style="display: flex; align-items: center;justify-content: center;">
+  <button style="margin: 20rpx ;" type="primary" bindtap="scan">扫码</button>
+  <button style="margin: 20rpx ;" type="primary" bindtap="save">保存</button>
+</view>
+
+<!-- 礼品列表 -->
+<view class='giftListView'>
+
+    <!-- 每个cell -->
+    <view class='item' wx:for="{{items}}" wx:for-item="item" wx:key="isbn"  data-item="{{item}}" data-index="{{index}}">
+
+      <text >isbn:</text>
+      <text >{{item.isbn}}</text>
+      <text >    书名:</text>
+     
+      
+      <input value="{{item.bookName}}"  type="text" placeholder="请输入书名"   bindinput="bindKeyInput" data-index="{{index}}"/>
+      <button bindtap="del" data-index="{{index}}" >删除</button> 
+    </view>
+</view>

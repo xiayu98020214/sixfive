@@ -46,10 +46,11 @@
     </view>
     <!-- <button style="margin: 30rpx 0" formType="reset">Reset</button> -->
   </form>
+
+
   <view style="flex-direction:row;">
     <text>结果：</text>
     <text class="user-motto">{{chineseCalendar}}</text>
   </view>
-
 
 </view>

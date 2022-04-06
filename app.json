@@ -1,29 +1,31 @@
 {
-  "pages":[
+  "pages": [
     "pages/books/books",
     "pages/index/index",
-    "pages/logs/logs"
-    
+    "pages/logs/logs",
+    "pages/shareBooks/shareBooks"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#a9b7b7",
     "selectedColor": "#11cd6e",
-    "borderStyle": "black" ,
-    "list": [{
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/books/books",
+        "text": "图书管理"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "五运六气"
+      }
 
-      "pagePath": "pages/books/books",
-      "text": "图书管理"
-    }, {
-  
-      "pagePath": "pages/index/index",
-      "text": "五运六气"
-    }
+
     ]
   },
   "style": "v2",

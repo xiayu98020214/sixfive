@@ -2,6 +2,9 @@
 <view style="display: flex; align-items: center;justify-content: center; ">
   <button style="margin: 20rpx ;" type="primary" bindtap="scan">扫码新建</button>
   <button style="margin: 20rpx ;" type="primary" bindtap="save">保存数据</button>
+  <button style="margin: 20rpx ;" type="primary"  open-type="share">分享数据</button>
+  <button style="margin: 20rpx ;" type="primary"  bindtap="jump">跳转</button>
+
 </view>
 <view style="display: flex; align-items: center;justify-content: center; ">
   <button style="margin: 20rpx ;" type="primary" bindtap="copy">数据库复制到粘贴板</button>

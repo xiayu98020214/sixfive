@@ -1,0 +1,31 @@
+<!--pages/shareBooks/shareBooks.wxml-->
+<view class='giftListView'>
+<view class='item' wx:for="{{items}}" wx:for-item="item" wx:key="isbn" data-item="{{item}}" data-index="{{index}}">
+    <view style="display: flexbox; flex-direction: row;">
+      <text style="margin-right: 10rpx;">isbn:</text>
+      <text>{{item.id}}</text>
+    </view>
+
+    <!-- <view style="display: flex; flex-direction: row;">
+      <text style="margin-right: 10rpx;" >书名:</text>
+      <input value="{{item.bookName}}" type="text" placeholder="请输入书名" bindinput="bindKeyInput"
+        data-index="{{index}}" />
+    </view> -->
+    <view style="display: flex; flex-direction: row;">
+      <text style="margin-right: 10rpx;" >书名:</text>
+      <text>{{item.name}}</text>
+    </view>
+
+    <view style="display: flex; flex-direction: row;">
+      <text style="margin-right: 10rpx;" >作者:</text>
+      <text>{{item.author}}</text>
+    </view>
+
+    <view style="display: flex; flex-direction: row;">
+      <text style="margin-right: 10rpx;" >出版社:</text>
+      <text>{{item.publishing}}</text>
+    </view>
+
+    <view class="divLine" style="margin-bottom: 5rpx ; margin-top: 5rpx;"></view>
+  </view>
+</view>

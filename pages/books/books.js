@@ -88,8 +88,16 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    console.log('/pages/shareBooks/shareBooks?data='+JSON.stringify(this.data.items));
+    return {
+      title: '我的图书',
+      path: '/pages/shareBooks/shareBooks?data='+JSON.stringify(this.data.items)
+    }
   },
   scan: function () { // 通过but点击事件触发后面的函数
     console.log("你好");
@@ -104,7 +112,7 @@ Page({
         });
         if(isContain(res.result,that.data.items)){
           wx.showToast({
-            title: "新建失败：这本书已经在数据了" ,
+            title: "新建失败：这本书已经存在了" ,
             icon: "none",
             duration: 3000
           });
@@ -118,11 +126,11 @@ Page({
           header: {'Content-Type': 'application/json'},
           success: function(res) {
             console.log(res)
-            wx.showToast({
-              title: "成功："+ JSON.stringify(res.data) ,
-              icon: "none",
-              duration: 5000
-            });
+            // wx.showToast({
+            //   title: "成功："+ JSON.stringify(res.data) ,
+            //   icon: "none",
+            //   duration: 5000
+            // });
             that.data.items.push(res.data.data);
             that.setData({
               items: that.data.items
@@ -191,6 +199,21 @@ Page({
     })
      
   },
+  jump: function(){
+    wx.getStorage({
+      key: 'books',
+      success: function (res) {
+        console.log(res.data)
+        wx.navigateTo({
+         
+         // url: '/pages/shareBooks/shareBooks.js?data='+res.data
+         url: '/pages/shareBooks/shareBooks?data='+res.data
+          })
+
+      }
+    })
+    
+  }
 
 })
 

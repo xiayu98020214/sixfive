@@ -33,6 +33,11 @@
       <text>{{item.author}}</text>
     </view>
 
+    <view style="display: flex; flex-direction: row;">
+      <text style="margin-right: 10rpx;" >出版社:</text>
+      <text>{{item.publishing}}</text>
+    </view>
+
     <button style="color: red; margin-top:20rpx ; margin-bottom: 20rpx; background: gray;" bindtap="del" data-index="{{index}}">删除</button>
     <view class="divLine"></view>
   </view>

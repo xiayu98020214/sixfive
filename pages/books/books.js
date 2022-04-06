@@ -100,8 +100,16 @@ Page({
         wx.showToast({
           title: "扫描成功："+ res.result ,
           icon: "none",
-          duration: 3000
+          duration: 1000
         });
+        if(isContain(res.result,that.data.items)){
+          wx.showToast({
+            title: "新建失败：这本书已经在数据了" ,
+            icon: "none",
+            duration: 3000
+          });
+          return;
+        }
         var url = baseUrl + res.result + apikey;
       
         wx.request({
@@ -185,3 +193,12 @@ Page({
   },
 
 })
+
+const isContain = (isbn,bookList)=> {
+  for(var i = 0; i < bookList.length; i++) {
+      if (bookList[i].id == isbn){
+        return true;
+      }
+  }
+  return false;
+}

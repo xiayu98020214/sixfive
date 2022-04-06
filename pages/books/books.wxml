@@ -1,22 +1,39 @@
 <!--pages/books/books.wxml-->
-
-<view style="display: flex; align-items: center;justify-content: center;">
-  <button style="margin: 20rpx ;" type="primary" bindtap="scan">扫码</button>
-  <button style="margin: 20rpx ;" type="primary" bindtap="save">保存</button>
+<view style="display: flex; align-items: center;justify-content: center; ">
+  <button style="margin: 20rpx ;" type="primary" bindtap="scan">扫码新建</button>
+  <button style="margin: 20rpx ;" type="primary" bindtap="save">保存数据</button>
 </view>
+<view style="display: flex; align-items: center;justify-content: center; ">
+  <button style="margin: 20rpx ;" type="primary" bindtap="copy">数据库复制到粘贴板</button>
+  <button style="margin: 20rpx ;" type="primary" bindtap="past">粘贴板复制到数据库</button>
+</view>
+<view class="divLine"></view>
 
-<!-- 礼品列表 -->
 <view class='giftListView'>
 
-    <!-- 每个cell -->
-    <view class='item' wx:for="{{items}}" wx:for-item="item" wx:key="isbn"  data-item="{{item}}" data-index="{{index}}">
-
-      <text >isbn:</text>
-      <text >{{item.isbn}}</text>
-      <text >    书名:</text>
-     
-      
-      <input value="{{item.bookName}}"  type="text" placeholder="请输入书名"   bindinput="bindKeyInput" data-index="{{index}}"/>
-      <button bindtap="del" data-index="{{index}}" >删除</button> 
+  <!-- 每个cell -->
+  <view class='item' wx:for="{{items}}" wx:for-item="item" wx:key="isbn" data-item="{{item}}" data-index="{{index}}">
+    <view style="display: flexbox; flex-direction: row;">
+      <text style="margin-right: 10rpx;">isbn:</text>
+      <text>{{item.id}}</text>
     </view>
+
+    <!-- <view style="display: flex; flex-direction: row;">
+      <text style="margin-right: 10rpx;" >书名:</text>
+      <input value="{{item.bookName}}" type="text" placeholder="请输入书名" bindinput="bindKeyInput"
+        data-index="{{index}}" />
+    </view> -->
+    <view style="display: flex; flex-direction: row;">
+      <text style="margin-right: 10rpx;" >书名:</text>
+      <text>{{item.name}}</text>
+    </view>
+
+    <view style="display: flex; flex-direction: row;">
+      <text style="margin-right: 10rpx;" >作者:</text>
+      <text>{{item.author}}</text>
+    </view>
+
+    <button style="color: red; margin-top:20rpx ; margin-bottom: 20rpx; background: gray;" bindtap="del" data-index="{{index}}">删除</button>
+    <view class="divLine"></view>
+  </view>
 </view>

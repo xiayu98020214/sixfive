@@ -1,4 +1,6 @@
 // pages/books/books.js
+const apikey="?apikey=12337.6b4fe0a53bbb843965713181b8e0c9a5.b3a0d908edff1246f700dc99b3e41257"
+const baseUrl = "https://api.jike.xyz/situ/book/isbn/"
 Page({
 
   /**
@@ -95,10 +97,39 @@ Page({
     wx.scanCode({
       success(res) {
         console.log(res)
-        that.data.items.push({isbn:res.result})  
-        that.setData({
-          items: that.data.items
+        wx.showToast({
+          title: "扫描成功："+ res.result ,
+          icon: "none",
+          duration: 3000
+        });
+        var url = baseUrl + res.result + apikey;
+      
+        wx.request({
+          url:url,
+          data:{},
+          header: {'Content-Type': 'application/json'},
+          success: function(res) {
+            console.log(res)
+            wx.showToast({
+              title: "成功："+ JSON.stringify(res.data) ,
+              icon: "none",
+              duration: 5000
+            });
+            that.data.items.push(res.data.data);
+            that.setData({
+              items: that.data.items
+            })
+          },
+          fail: function(res){
+            wx.showToast({
+              title: "失败："+JSON.stringify(res),
+              icon: "none",
+              duration: 5000
+            })
+          }
         })
+       
+        
       }
     })
   },
@@ -114,14 +145,43 @@ Page({
   del: function (event) {
     console.log(event);
     console.log(event.currentTarget.dataset.index);
-    this.data.items.splice(event.currentTarget.dataset.index,1);
-   
+    this.data.items.splice(event.currentTarget.dataset.index, 1);
+
     this.setData({
       items: this.data.items
     })
   },
-  bindKeyInput: function(event){
+  bindKeyInput: function (event) {
     console.log(event);
     this.data.items[event.currentTarget.dataset.index].bookName = event.detail.value
-  }
+  },
+
+  copy: function (event) {
+
+    wx.getStorage({
+      key: 'books',
+      success: function (res) {
+        console.log(res.data)
+        wx.setClipboardData({
+          data: res.data,
+          success: function (res) {}
+        })
+      }
+    })
+
+  },
+
+  past: function(event){
+    var that = this;
+    wx.getClipboardData({
+      success:function (res) {
+        console.log(res.data)// data
+        that.setData({
+          items: JSON.parse(res.data)
+        }); 
+      }
+    })
+     
+  },
+
 })
